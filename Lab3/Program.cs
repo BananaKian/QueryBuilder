@@ -14,7 +14,7 @@ namespace Lab3
         static void Main(string[] args)
         {
             string database = "C:\\Users\\Owner\\source\\repos\\Lab3\\Lab3\\Data\\data.db";
-            int testID = 0;
+            var testID = 0;
 
 
 
@@ -29,17 +29,17 @@ namespace Lab3
             List<Pokemon> pk1 = new();
 
             pk1 = queryb.ReadAll<Pokemon>();
-            
-            //Pokemon test1 = queryb.DeleteAll<Pokemon>();
-            
-            Pokemon testDel = queryb.Delete<Pokemon>(Id);
-            Pokemon allDelete = queryb.DeleteAll<Pokemon>();
+            var pk2 = queryb.Read<Pokemon>(3);
+
+            Pokemon testDel = queryb.Delete<Pokemon>(); 
+
+          //  Pokemon allDelete = queryb.DeleteAll<Pokemon>();
 
             foreach (var e in pk1)
             {
                 WriteLine($"{e.Id} {e.DexNumber} {e.Name} {e.Form} {e.Type1} {e.Type2} {e.Total} {e.HP} {e.Attack} {e.Defense} {e.SpecialAttack} {e.SpecialDefense} {e.Speed} {e.Generation}");
             }
-
+            WriteLine(pk2.Name);
             ReadLine();
         }
     }
